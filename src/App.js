@@ -47,7 +47,8 @@ function App() {
 
   useEffect(() => {
     const getOrderList = async () => {
-      const { data } = await axios.get(`${ROUTE}/api/admin/orders/all`, { withCredentials: true });
+      const { data } = await axios.get(`${ROUTE}/api/admin/orders/all`)
+      console.log(data);
       if (data.status) {
         dispath(fetchDataOrderList(data.result))
       }
@@ -108,7 +109,6 @@ function App() {
     socket.current.emit("admin-connection", { id: 'admin' })
     socket.current.on("new-order-recieve", (body) => {
       toast.success("New Order", toastOption);
-      console.log(body);
       if (body.status) {
         dispath(addDataOrderList(body.result))
         dispath(addDataOrderNumber())
@@ -122,12 +122,10 @@ function App() {
     });
 
     autoLogin()
-    if (!isLoading) {
-      getCategoryList()
-      getProductList()
-      getOrderList()
-      getVisitorList()
-    }
+    getOrderList()
+    getCategoryList()
+    getProductList()
+    getVisitorList()
   }, [])
 
   if (isLoading) {
