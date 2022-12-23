@@ -2,9 +2,6 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import OrderItem from './OrderItem';
 import { v4 as uuidv4 } from 'uuid';
-// import { io } from "socket.io-client";
-// import { ROUTE } from '../api/route';
-
 
 function OrderTable({ title = "Order", orderList = undefined, action = true }) {
     return (
@@ -36,7 +33,6 @@ export default OrderTable
 
 const Container = styled.div`
     width: 100%;
-    min-height: 400px;
     max-height: 532px;
     background-color: #ffc786b8;
     box-sizing: border-box;

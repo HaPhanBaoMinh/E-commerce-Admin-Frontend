@@ -97,10 +97,6 @@ function ProductDetail() {
             toast.success("Updated product!", toastOption);
         }
 
-        for (var key of formData.current.keys()) {
-            formData.current.delete(key);
-        }
-
     }
 
     useEffect(() => {
@@ -192,9 +188,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 20px;
-    @media screen and (max-width: 600px)  {
-        /* height: 110%; */
-    }
+    
     .half-row {
         @media screen and (max-width: 600px)  {
             flex-direction: column;

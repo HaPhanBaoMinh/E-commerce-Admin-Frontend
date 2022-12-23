@@ -109,6 +109,9 @@ const Container = styled.div`
     gap: 30px;
     padding: var(--padding);
     box-shadow: 0px 0px 4px 0px #636363;
+    @media screen and (max-width: 600px)  {
+        width: 80%
+    }
     .signup{
         margin-top: auto;
         width: 100%;

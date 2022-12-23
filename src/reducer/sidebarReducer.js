@@ -1,5 +1,5 @@
 
-const reducer = (isOpen = true, action) => {
+const reducer = (isOpen = false, action) => {
     switch (action.type) {
         case "OPEN_SIDEBAR":
             return true;

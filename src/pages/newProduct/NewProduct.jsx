@@ -174,6 +174,11 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 20px;
+    .half-row {
+        @media screen and (max-width: 600px)  {
+            flex-direction: column;
+        }
+    }
     .sucess-inform{
         height: 100%;
         width: 100%;
@@ -223,6 +228,11 @@ const Container = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
+        h1{
+            @media screen and (max-width: 600px)  {
+                font-size: small;
+            }
+        }
         button{
             height: 40px;
             outline: none;

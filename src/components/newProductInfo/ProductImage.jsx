@@ -67,6 +67,12 @@ const Container = styled.div`
     gap: var(--padding);
     background-color: #ffc786b8;
     border-radius: 5px;
+    @media screen and (max-width: 600px)  {
+        margin: 10px 0;
+        height: 50%;
+        width: 100%;
+        padding: 10px;
+    }
     button{
         outline: none;
         cursor: pointer;

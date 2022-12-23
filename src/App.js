@@ -43,7 +43,6 @@ function App() {
   //   }
   //   getOrderList()
   // }, [])
-  console.log(adminInfo);
 
   useEffect(() => {
     const getOrderList = async () => {

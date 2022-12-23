@@ -47,6 +47,10 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
+    @media screen and (max-width: 600px)  {
+        width: 100%;
+        padding: 10px;
+    }
     h2{
     }
     .info-row{
@@ -58,6 +62,9 @@ const Container = styled.div`
         label{
             font-size: 15px;
             font-weight: 600;
+            @media screen and (max-width: 600px)  {
+                display: none;
+            }
             }      
     }
     .MuiFormControl-root{

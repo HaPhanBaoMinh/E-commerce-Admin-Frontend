@@ -55,7 +55,7 @@ function ProductImage({ images, setimages, formData }) {
 
 export default memo(ProductImage)
 
-const Container = styled.div`
+const Container = styled.div` 
     padding: var(--padding);
     width: 40%;
     /* height: 500px;  */

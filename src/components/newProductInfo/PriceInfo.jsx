@@ -4,7 +4,6 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { Box } from '@mui/system';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { MdOutlineClear } from "react-icons/md";
 
 
 function PriceInfo({ setprice, setdiscount, setday_end_discount, discount, price, day_end_discount }) {
@@ -67,13 +66,25 @@ const Container = styled.div`
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 600px)  {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+
+    }
     .info-half-row-container{
         width: 100%;
         display: flex;
         justify-content: space-between;
         gap: var(--padding);
+        @media screen and (max-width: 600px)  {
+            flex-direction: column;
+        }
         .info-half-row{
             width: 50%;
+            @media screen and (max-width: 600px)  {
+                width: 100%;
+            }
             .css-1brzfiy{
                 height: 40px;
                 background-color: #ffc786b8;

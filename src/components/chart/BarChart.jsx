@@ -65,8 +65,9 @@ export default BarChart
 
 const Container = styled.div`
     width: 100%;
-    height: 90%;
+    height: 100%;
     /* background-color: #767611; */
+    justify-content: space-between;
     display: flex;
     width: calc(205%/3);
     /* display: flex; */
@@ -85,7 +86,7 @@ const Container = styled.div`
         }
     }
     canvas{
-        width:100% !important;
+        /* width:100% !important; */
         height:auto !important;
     }
 `

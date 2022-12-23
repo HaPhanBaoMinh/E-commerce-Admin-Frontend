@@ -4,10 +4,23 @@ import { GrMenu } from 'react-icons/gr'
 import { CiLogout } from 'react-icons/ci'
 import { useSelector, useDispatch } from 'react-redux';
 import { closeSideBar, openSideBar } from '../../../action/sidebarAction';
+import { removeAdminInfo } from '../../../action/adminInfoAction';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
     const dispath = useDispatch();
-    const [slideBarStatus, setslideBarStatus] = useState(true);
+    const [slideBarStatus, setslideBarStatus] = useState(false);
+    const adminInfo = useSelector(state => state.adminInfo);
+    const navigate = useNavigate();
+
+    console.log(adminInfo);
+
+    const onLogout = () => {
+        dispath(removeAdminInfo())
+        localStorage.removeItem("email");
+        localStorage.removeItem("password");
+        return navigate("/login");
+    }
 
     const onClickMenu = () => {
         if (slideBarStatus) {
@@ -36,10 +49,10 @@ function Header() {
                     <div className="user-info">
                         <div className="user-logo">
                         </div>
-                        <h4 className='user-name'>Ha Phan Bao Minh</h4>
+                        <h4 className='user-name'>{adminInfo ? `${adminInfo.lastname} ${adminInfo.firstname}` : undefined}</h4>
                     </div>
 
-                    <div className="logout-button">
+                    <div className="logout-button" onClick={() => onLogout()}>
                         <CiLogout />
                     </div>
                 </div>

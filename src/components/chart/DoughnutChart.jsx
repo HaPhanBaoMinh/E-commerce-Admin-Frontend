@@ -60,9 +60,10 @@ export default DoughnutChart
 
 const Container = styled.div`
     width: 100%;
-    height: 90%;
+    height: 100%;
     /* background-color: aqua; */
     display: flex;
+    justify-content: space-around;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;

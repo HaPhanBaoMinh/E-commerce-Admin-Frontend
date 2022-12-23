@@ -25,7 +25,7 @@ function BasicInfo({ setname, setbrand, setquantity, setdescription, name, brand
 
                 <div className="info-row">
                     <label htmlFor="description">Description </label>
-                    <textarea type="text" id="description" value={description} maxLength="500" rows="4" onChange={(e) => setdescription(e.target.value)} />
+                    <textarea type="text" id="description" value={description} maxLength="500" rows="6" onChange={(e) => setdescription(e.target.value)} />
                 </div>
             </div>
         </Container>
@@ -43,6 +43,11 @@ const Container = styled.div`
     gap: var(--padding);
     background-color: #ffc786b8;
     border-radius: 5px;
+    @media screen and (max-width: 600px)  {
+        /* height: 50%; */
+        width: 100%;
+        padding: 10px;
+    }
     h2{
         height: 10%;
     }
