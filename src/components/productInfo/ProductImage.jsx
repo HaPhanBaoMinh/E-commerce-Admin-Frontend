@@ -42,12 +42,15 @@ function ProductImage({ images, setimages, formData }) {
                     </div>) : undefined
                 }
 
-                <div className="image">
-                    <label className="add-new-img">
-                        <AiOutlinePlus />
-                        <input type="file" id="file-upload" onChange={(e) => onAddNewImages(e)} />
-                    </label>
-                </div>
+                {
+                    images.length < 5 ?
+                        <div className="image">
+                            <label className="add-new-img">
+                                <AiOutlinePlus />
+                                <input type="file" id="file-upload" onChange={(e) => onAddNewImages(e)} />
+                            </label>
+                        </div> : undefined
+                }
             </div>
         </Container>
     )

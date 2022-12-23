@@ -36,12 +36,15 @@ function ProductImage({ formData, images, setimages }) {
             <h2>Image</h2>
             <div className="images-container">
 
-                <div className="image">
-                    <label className="add-new-img">
-                        <AiOutlinePlus />
-                        <input type="file" id="file-upload" onChange={(e) => onAddNewImages(e)} />
-                    </label>
-                </div>
+                {images.length < 5 ?
+
+                    <div className="image">
+                        <label className="add-new-img">
+                            <AiOutlinePlus />
+                            <input type="file" id="file-upload" onChange={(e) => onAddNewImages(e)} />
+                        </label>
+                    </div> : undefined
+                }
 
                 {images.map((img, index) =>
                     <div className="image" key={uuidv4()}>

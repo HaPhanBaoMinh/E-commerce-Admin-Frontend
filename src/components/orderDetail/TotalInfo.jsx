@@ -32,10 +32,15 @@ function TotalInfo({ createat, id, defaultStatus, total }) {
 
     const updateOrderStatus = async (newStatus) => {
         dispath(updateDataOrderList(id, newStatus))
-        await axios.post(`${ROUTE}/api/admin/orders/update`, {
+        setIsLoading(true)
+        const { data } = await axios.post(`${ROUTE}/api/admin/orders/update`, {
             id: id,
             status: newStatus
         })
+        if (data.status) {
+            setIsLoading(false)
+        }
+
     }
     const handleChange = (event) => {
         updateOrderStatus(event.target.value)
@@ -86,7 +91,7 @@ function TotalInfo({ createat, id, defaultStatus, total }) {
                     >
                         <MenuItem value={"Ordered"} >Ordered</MenuItem>
                         <MenuItem value={"Shipped"} >Shipped</MenuItem>
-                        <MenuItem value={"Transit"} >In Transit</MenuItem>
+                        <MenuItem value={"In Transit"} >In Transit</MenuItem>
                         <MenuItem value={"Delivered"} >Delivered</MenuItem>
                         <MenuItem value={"Cancelled"} >Cancelled</MenuItem>
                         <MenuItem value={"Delivery failed"} >Delivery failed</MenuItem>

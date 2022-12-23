@@ -93,7 +93,35 @@ function ProductDetail() {
         const { data } = await axios.put(`${ROUTE}/api/product`, formData.current)
         if (data.status) {
             setIsLoading(false)
-            dispath(updateProductData(data.inserted))
+            dispath(updateProductData(data.inserted));
+
+            const productDetail = data.inserted;
+            const day = new Date(productDetail.day_end_discount);
+            const dayEndDiscount = `${day.getMonth() + 1}-${day.getDate()}-${day.getFullYear()}`
+            setProduct(productDetail)
+            setname(productDetail.name);
+            setbrand(productDetail.brand);
+            setquantity(productDetail.quantity);
+            setdiscount(productDetail.discount_price);
+            setdescription(productDetail.description);
+            setcategoryId(productDetail.category_id);
+            setprice(productDetail.price);
+            setday_end_discount(dayEndDiscount);
+            setprice(productDetail.price);
+            setimages(productDetail.images);
+
+            formData.current.delete('name');
+            formData.current.delete('brand');
+            formData.current.delete('description');
+            formData.current.delete('category_id');
+            formData.current.delete('quantity');
+            formData.current.delete('price');
+            formData.current.delete('discount_price');
+            formData.current.delete('day_end_discount');
+            for (let index = 0; index < 5; index++) {
+                formData.current.delete('images');
+            }
+
             toast.success("Updated product!", toastOption);
         }
 
